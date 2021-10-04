@@ -28,5 +28,4 @@ jobs:
       - name: Run type check
         run: |
           cd template
-          cp tsconfig.example.json tsconfig.json
           yarn type-check
