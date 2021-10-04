@@ -23,10 +23,10 @@ jobs:
       - name: Run tests
         run: |
           cd template
-          cp template/src/Config/index.example.js template/src/Config/index.js
+          cp src/Config/index.example.js src/Config/index.js
           yarn test
       - name: Run type check
         run: |
           cd template
-          cp template/tsconfig.example.json template/tsconfig.json
+          cp tsconfig.example.json tsconfig.json
           yarn type-check
