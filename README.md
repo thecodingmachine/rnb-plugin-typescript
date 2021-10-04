@@ -11,9 +11,9 @@
 
 # TheCodingMachine React Native boilerplate - Typescript Plugin
 
-This project is a part of [React Native](https://facebook.github.io/react-native/) boilerplate that can be used to kickstart a mobile application.
+This project is part of our [React Native Boilerplate](https://github.com/thecodingmachine/react-native-boilerplate/) that can be used to kickstart a mobile application.
 
-The boilerplate provides **an optimized architecture for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. It is fully documented so that each piece of code that lands in your application can be understood and used.
+This boilerplate provides **an optimized architecture for building solid cross-platform mobile applications** through separation of concerns between the UI and business logic. It is fully documented so that each piece of code that lands in your application can be understood and re-used.
 
 ## Quick start
 
@@ -23,16 +23,17 @@ To create a new project using the boilerplate simply run :
 npx react-native init MyApp --template @thecodingmachine/react-native-boilerplate
 ```
 
-And selected `typescript` as language when it will be asked.
+Select `typescript` as language when prompt.
 
 Assuming you have all the requirements installed, you can run the project by running:
 
 - `yarn start` to start the metro bundler, in a dedicated terminal
-- `yarn <platform>` to run the *platform* application (remember to start a simulator or connect a device)
+- `yarn <platform>` to run the _platform_ application (remember to start a simulator or to connect a device)
 
 ## Digging Deeper
 
-To learn more about the boilerplate, go to [full documentation](https://thecodingmachine.github.io/react-native-boilerplate)
+To learn more about the main project, go to [the boilerplate repository](https://github.com/thecodingmachine/react-native-boilerplate/)
+More informations about usage of the boilerplate in our [full documentation](https://thecodingmachine.github.io/react-native-boilerplate)
 
 ## License
 
