@@ -1,0 +1,32 @@
+{
+  "name": "@thecodingmachine/rnb-plugin-typescript",
+  "version": "1.0.0",
+  "description": "TheCodingMachine React Native Boilerplate typescript plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thecodingmachine/rnb-plugin-typescript.git"
+  },
+  "author": "TheCodingMachine Lyon <lyon@thecodingmachine.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thecodingmachine/rnb-plugin-typescript/issues"
+  },
+  "homepage": "https://thecodingmachine.github.io/react-native-boilerplate/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "boilerplate",
+    "thecodingmachine",
+    "react-native",
+    "starter-kit",
+    "typescript"
+  ],
+  "peerDependencies": {
+    "prompts": "^2.4.1",
+    "kleur": "^4.1.4"
+  }
+}

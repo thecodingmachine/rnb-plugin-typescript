@@ -8,10 +8,10 @@ npm-debug.log
 yarn-error.log
 node_modules
 template/src/Config/index.ts
-documentation
 .idea
 .github
 
+TOM-Legend.png
 template/__tests__
 template/android
 template/ios

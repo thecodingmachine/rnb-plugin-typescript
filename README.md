@@ -1,12 +1,12 @@
 <div align="center">
-    <img src="documentation/static/img/TOM-Legend.png" alt="Logo" width="100%">
+    <img src="./TOM-Legend.png" alt="Logo" width="100%">
 </div>
 
-![React Native Boilerplate License](https://img.shields.io/github/license/thecodingmachine/rnb-plugin-typescript)
-![React Native Boilerplate Version](https://flat.badgen.net/npm/v/@thecodingmachine/rnb-plugin-typescript)
-![React Native Boilerplate Release Date](https://img.shields.io/github/release-date/thecodingmachine/rnb-plugin-typescript)
-![React Native Boilerplate Download](https://flat.badgen.net/npm/dt/@thecodingmachine/rnb-plugin-typescript)
-![React Native Boilerplate Top Language](https://img.shields.io/github/languages/top/thecodingmachine/rnb-plugin-typescript)
+![React Native Boilerplate Typescript License](https://img.shields.io/github/license/thecodingmachine/rnb-plugin-typescript)
+![React Native Boilerplate Typescript Version](https://flat.badgen.net/npm/v/@thecodingmachine/rnb-plugin-typescript)
+![React Native Boilerplate Typescript Release Date](https://img.shields.io/github/release-date/thecodingmachine/rnb-plugin-typescript)
+![React Native Boilerplate Typescript Download](https://flat.badgen.net/npm/dt/@thecodingmachine/rnb-plugin-typescript)
+![React Native Boilerplate Typescript Top Language](https://img.shields.io/github/languages/top/thecodingmachine/rnb-plugin-typescript)
 [![CI](https://github.com/thecodingmachine/rnb-plugin-typescript/actions/workflows/CI.yml/badge.svg)](https://github.com/thecodingmachine/rnb-plugin-typescript/actions/workflows/CI.yml)
 
 # TheCodingMachine React Native boilerplate - Typescript Plugin
