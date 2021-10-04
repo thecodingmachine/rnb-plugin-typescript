@@ -58,4 +58,4 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 
-template/plugins/typescript/template/tsconfig.json
+/src/tsconfig.json
