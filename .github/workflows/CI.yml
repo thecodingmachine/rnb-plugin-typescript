@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches:
+    - '*'
+
+jobs:
+  install-lint-test-type:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install yarn dependencies
+        run: |
+          cd template
+          yarn install
+      - name: Run linters
+        run: |
+          cd template
+          yarn lint
+      - name: Run tests
+        run: |
+          cd template
+          cp template/src/Config/index.example.js template/src/Config/index.js
+          yarn test
+      - name: Run type check
+        run: |
+          cd template
+          cp template/tsconfig.example.json template/tsconfig.json
+          yarn type-check
