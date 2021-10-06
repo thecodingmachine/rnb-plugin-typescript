@@ -1,8 +1,8 @@
 const { existsSync } = require('fs')
 const { copyFile, rename, readdir, lstat, unlink } = require('fs').promises
-const { execSync } = require('child_process')
+const { execSync, exec } = require('child_process')
 
-const SCRIPT_PATH = './plugins/typescript'
+const SCRIPT_PATH = './node_modules/@thecodingmachine/rnb-plugin-typescript'
 const TEMPLATE_PATH = '.'
 
 /**
@@ -89,11 +89,6 @@ async function renameWithTypeScript(
  * @return {Promise<void>}
  */
 async function chooseTypescript() {
-  // add the tsconfig.json
-  await copyFile(
-    `${SCRIPT_PATH}/template/tsconfig.example.json`,
-    `${TEMPLATE_PATH}/tsconfig.json`,
-  )
   await overrideWithTypeScript()
   await renameWithTypeScript()
 }
@@ -106,19 +101,31 @@ module.exports = {
    */
   async apply(value, previousValues) {
     if (value) {
-      await chooseTypescript()
-      await copyFile(
-        `${TEMPLATE_PATH}/src/Config/index.example.js`,
-        `${TEMPLATE_PATH}/src/Config/index.ts`,
-      )
-      await rename(
-        `${TEMPLATE_PATH}/src/Config/index.example.js`,
-        `${TEMPLATE_PATH}/src/Config/index.example.ts`,
-      )
-      execSync(
-        'yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @types/fbemitter @types/react-redux',
-        { stdio: 'pipe' },
-      )
+      await new Promise((resolve) => {
+        exec(
+          'yarn add -D @thecodingmachine/rnb-plugin-typescript',
+          { stdio: 'pipe' },
+          async () => {
+            await chooseTypescript()
+            await copyFile(
+              `${TEMPLATE_PATH}/src/Config/index.example.js`,
+              `${TEMPLATE_PATH}/src/Config/index.ts`,
+            )
+            await rename(
+              `${TEMPLATE_PATH}/src/Config/index.example.js`,
+              `${TEMPLATE_PATH}/src/Config/index.example.ts`,
+            )
+            await execSync(
+              'yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer @types/fbemitter @types/react-redux',
+              { stdio: 'pipe' },
+            )
+            await execSync(
+              'yarn remove @thecodingmachine/rnb-plugin-typescript',
+              { stdio: 'pipe' },
+            )
+            resolve(true)
+          }
+      )})
     } else {
       await copyFile(
         `${TEMPLATE_PATH}/src/Config/index.example.js`,
