@@ -31,7 +31,6 @@ template/jsconfig.js
 template/metro.config.js
 template/package.json
 template/yarn.lock
-template/tsconfig.json
 
 template/src/Assets
 template/src/Components/index.ts
