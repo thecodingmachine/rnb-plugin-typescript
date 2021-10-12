@@ -36,6 +36,5 @@ template/src/Assets
 template/src/Components/index.ts
 template/src/Config
 template/src/Containers/index.ts
-template/src/Navigators/utils.ts
 template/src/Navigators/Main.tsx
 template/src/Translations
