@@ -123,6 +123,10 @@ module.exports = {
               'yarn remove @thecodingmachine/rnb-plugin-typescript',
               { stdio: 'pipe' },
             )
+            await execSync(
+              'yarn lint --fix',
+              { stdio: 'pipe' },
+            )
             resolve(true)
           }
       )})

@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { combineReducers } from 'redux'
+import { combineReducers, Middleware } from 'redux'
 import {
   persistReducer,
   persistStore,
@@ -10,7 +10,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
-import { configureStore, MiddlewareArray } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 
 import { api } from '@/Services/api'
@@ -43,8 +43,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    })
-    middlewares.concat(api.middleware)
+    }).concat(api.middleware as Middleware)
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
       const createDebugger = require('redux-flipper').default
