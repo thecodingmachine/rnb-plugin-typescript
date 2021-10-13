@@ -39,16 +39,12 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware => {
-    const middlewares = new MiddlewareArray()
-    middlewares
-      .concat(
-        getDefaultMiddleware({
-          serializableCheck: {
-            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-          },
-        }),
-      )
-      .concat(api.middleware)
+    const middlewares = getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    })
+    middlewares.concat(api.middleware)
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
       const createDebugger = require('redux-flipper').default
