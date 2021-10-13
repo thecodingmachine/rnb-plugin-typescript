@@ -15,6 +15,7 @@ TOM-Legend.png
 template/__tests__
 template/android
 template/ios
+template/index.js
 template/node_modules
 template/.buckconfig
 template/.editorconfig
