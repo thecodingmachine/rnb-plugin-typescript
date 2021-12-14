@@ -25,6 +25,10 @@
     "starter-kit",
     "typescript"
   ],
+  "dependencies": {
+    "rnb-toolkit": "file:./../rnb-toolbox",
+    "ttys": "0.0.3"
+  },
   "peerDependencies": {
     "prompts": "^2.4.1",
     "kleur": "^4.1.4"
