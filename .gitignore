@@ -9,3 +9,4 @@ build/
 .gradle
 local.properties
 *.iml
+node_modules/
