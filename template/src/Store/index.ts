@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { combineReducers, Middleware } from 'redux'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { setupListeners } from '@reduxjs/toolkit/query'
 import {
   persistReducer,
   persistStore,
@@ -10,22 +11,13 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist'
-import { configureStore } from '@reduxjs/toolkit'
-import { setupListeners } from '@reduxjs/toolkit/query'
 
 import { api } from '@/Services/api'
-import * as modules from '@/Services/modules'
 import theme from './Theme'
 
 const reducers = combineReducers({
   theme,
-  ...Object.values(modules).reduce(
-    (acc, module) => ({
-      ...acc,
-      [module.reducerPath]: module.reducer,
-    }),
-    {},
-  ),
+  api: api.reducer,
 })
 
 const persistConfig = {
@@ -43,7 +35,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(api.middleware as Middleware)
+    }).concat(api.middleware)
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
       const createDebugger = require('redux-flipper').default

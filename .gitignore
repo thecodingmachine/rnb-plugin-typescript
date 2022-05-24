@@ -1,11 +1,7 @@
-# OSX
-#
 .DS_Store
-
-# Android/IntelliJ
-#
 build/
 .idea
 .gradle
 local.properties
 *.iml
+node_modules/

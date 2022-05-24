@@ -26,11 +26,11 @@
     "typescript"
   ],
   "dependencies": {
-    "rnb-toolkit": "file:./../rnb-toolbox",
+    "@thecodingmachine/rnb-toolbox": "^1.0.0-beta.1",
     "ttys": "0.0.3"
   },
   "peerDependencies": {
-    "prompts": "^2.4.1",
-    "kleur": "^4.1.4"
+    "kleur": "^4.1.4",
+    "prompts": "^2.4.1"
   }
 }
