@@ -5,17 +5,10 @@
  * That allows to change them more easily later on.
  */
 
-import {
-  ThemeColors,
-  ThemeFontSize,
-  ThemeMetricsSizes,
-  ThemeNavigationColors,
-} from '@/Theme/theme.type'
-
 /**
  * Colors
  */
-export const Colors: ThemeColors = {
+export const Colors = {
   // Example colors:
   transparent: 'rgba(0,0,0,0)',
   inputBackground: '#FFFFFF',
@@ -26,14 +19,14 @@ export const Colors: ThemeColors = {
   error: '#dc3545',
 }
 
-export const NavigationColors: Partial<ThemeNavigationColors> = {
+export const NavigationColors = {
   primary: Colors.primary,
 }
 
 /**
  * FontSize
  */
-export const FontSize: ThemeFontSize = {
+export const FontSize = {
   small: 16,
   regular: 20,
   large: 40,
@@ -46,7 +39,7 @@ const tiny = 5 // 10
 const small = tiny * 2 // 10
 const regular = tiny * 3 // 15
 const large = regular * 2 // 30
-export const MetricsSizes: ThemeMetricsSizes = {
+export const MetricsSizes = {
   tiny,
   small,
   regular,

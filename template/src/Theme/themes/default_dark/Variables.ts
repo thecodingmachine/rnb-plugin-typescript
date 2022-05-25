@@ -1,12 +1,10 @@
-import { ThemeColors, ThemeNavigationColors } from '@/Theme/theme.type'
-
-const Colors: ThemeColors = {
+const Colors = {
   primary: 'lightblue',
   text: 'white',
   inputBackground: 'gray',
 }
 
-const NavigationColors: Partial<ThemeNavigationColors> = {
+const NavigationColors = {
   primary: Colors.primary,
 }
 

@@ -5,13 +5,9 @@
  */
 import { StyleSheet } from 'react-native'
 import buttonStyles from './components/Buttons'
-import { ThemeCommonParams } from '@/Theme/theme.type'
-/**
- *
- * @param Theme can be spread like {Colors, NavigationColors, Gutters, Layout, Common, ...args}
- * @return {*}
- */
-export default function ({ Colors, ...args }: ThemeCommonParams) {
+import { CommonParams } from './theme'
+
+export default function <C>({ Colors, ...args }: CommonParams<C>) {
   return {
     button: buttonStyles({ Colors, ...args }),
     ...StyleSheet.create({

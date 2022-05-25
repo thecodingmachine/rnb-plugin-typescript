@@ -1,9 +1,4 @@
-# OSX
-#
 .DS_Store
-
-# Android/IntelliJ
-#
 build/
 .idea
 .gradle
