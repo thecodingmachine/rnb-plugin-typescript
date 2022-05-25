@@ -6,7 +6,6 @@ const { RNBPlugin } = require('@thecodingmachine/rnb-toolbox');
 const plugin = new RNBPlugin({
   organisation: '@thecodingmachine',
   packageName: 'rnb-plugin-typescript',
-  version: '2.0.0-beta.14',
   promptsOptions: {
     type: 'confirm',
     color: 'blue',
