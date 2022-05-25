@@ -34,6 +34,7 @@ export const { changeTheme, setDefaultTheme } = slice.actions
 export default slice.reducer
 
 type DarkProps<T> = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   [K in keyof T]: K extends `${infer Prefix}_dark` ? K : never
 }[keyof T]
 

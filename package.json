@@ -1,6 +1,6 @@
 {
   "name": "@thecodingmachine/rnb-plugin-typescript",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.14",
   "description": "TheCodingMachine React Native Boilerplate typescript plugin",
   "repository": {
     "type": "git",
@@ -26,11 +26,18 @@
     "typescript"
   ],
   "dependencies": {
-    "@thecodingmachine/rnb-toolbox": "^1.0.0-beta.1",
+    "@thecodingmachine/rnb-toolbox": "^1.0.0-rc.1",
     "ttys": "0.0.3"
   },
   "peerDependencies": {
     "kleur": "^4.1.4",
     "prompts": "^2.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/eslint-parser": "^7.17.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
   }
 }

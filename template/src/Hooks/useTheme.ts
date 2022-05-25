@@ -11,7 +11,12 @@ import {
   DefaultVariables,
 } from '@/Theme'
 import { ThemeState } from '@/Store/Theme'
-import {ThemeVariables, Theme, ThemeNavigationTheme, ThemeNavigationColors} from "@/Theme/theme.d";
+import {
+  ThemeVariables,
+  Theme,
+  ThemeNavigationTheme,
+  ThemeNavigationColors,
+} from '@/Theme/theme'
 
 export default function () {
   // Get the scheme device
@@ -43,19 +48,14 @@ export default function () {
   }
 
   if (darkMode) {
-    const {
-      Variables,
-      ...darkThemeConfig
-    } = themes[`${currentTheme}_dark` as keyof typeof themes] || {}
+    const { Variables, ...darkThemeConfig } =
+      themes[`${currentTheme}_dark` as keyof typeof themes] || {}
 
     darkVariables = Variables
     partialDarkTheme = darkThemeConfig
   }
 
-  const themeVariables = mergeVariables(
-      variables,
-      darkVariables,
-  )
+  const themeVariables = mergeVariables(variables, darkVariables)
 
   const fonts = Fonts(themeVariables)
   const gutters = Gutters(themeVariables)
@@ -71,12 +71,12 @@ export default function () {
 
   // Build the default theme
   const baseTheme: Theme<
-      typeof fonts,
-      typeof gutters,
-      typeof images,
-      typeof layout,
-      typeof common
-      > = {
+    typeof fonts,
+    typeof gutters,
+    typeof images,
+    typeof layout,
+    typeof common
+  > = {
     Fonts: fonts,
     Gutters: gutters,
     Images: images,
@@ -97,9 +97,9 @@ export default function () {
 /**
  * Generate Theme with theme variables
  */
-const formatTheme = <F,G,I,L,C>(
+const formatTheme = <F, G, I, L, C>(
   variables: ThemeVariables,
-  theme: Partial<Theme<F,G,I,L,C>>,
+  theme: Partial<Theme<F, G, I, L, C>>,
 ) => {
   return Object.entries(theme).reduce((acc, [name, generate]) => {
     return {
@@ -118,8 +118,12 @@ const mergeVariables = (
   darkThemeConfig: Partial<ThemeVariables>,
 ) => {
   return Object.entries(DefaultVariables).reduce((acc, [group, vars]) => {
-    const theme: Record<keyof typeof DefaultVariables, typeof vars> | undefined = (themeConfig as any)[group]
-    const darkTheme: Record<keyof typeof DefaultVariables, typeof vars> | undefined = (darkThemeConfig as any)[group]
+    const theme:
+      | Record<keyof typeof DefaultVariables, typeof vars>
+      | undefined = (themeConfig as any)[group]
+    const darkTheme:
+      | Record<keyof typeof DefaultVariables, typeof vars>
+      | undefined = (darkThemeConfig as any)[group]
 
     return {
       ...acc,
@@ -135,11 +139,11 @@ const mergeVariables = (
 /**
  * Provide all the theme exposed with useTheme()
  */
-const buildTheme = <F,G,I,L,C>(
+const buildTheme = <F, G, I, L, C>(
   darkMode: boolean,
-  baseTheme: Theme<F,G,I,L,C>,
-  themeConfig: Partial<Theme<F,G,I,L,C>>,
-  darkThemeConfig: Partial<Theme<F,G,I,L,C>>,
+  baseTheme: Theme<F, G, I, L, C>,
+  themeConfig: Partial<Theme<F, G, I, L, C>>,
+  darkThemeConfig: Partial<Theme<F, G, I, L, C>>,
 ) => {
   return {
     ...mergeTheme(baseTheme, themeConfig, darkThemeConfig),
@@ -154,21 +158,21 @@ const buildTheme = <F,G,I,L,C>(
 /**
  * Merge theme from baseTheme <- currentTheme <- currentDarkTheme
  */
-const mergeTheme = <F,G,I,L,C>(
-  baseTheme: Theme<F,G,I,L,C>,
-  theme: Partial<Theme<F,G,I,L,C>>,
-  darkTheme: Partial<Theme<F,G,I,L,C>>,
+const mergeTheme = <F, G, I, L, C>(
+  baseTheme: Theme<F, G, I, L, C>,
+  theme: Partial<Theme<F, G, I, L, C>>,
+  darkTheme: Partial<Theme<F, G, I, L, C>>,
 ) =>
   Object.entries(baseTheme).reduce(
     (acc, [key, value]) => ({
       ...acc,
       [key]: {
-        ...(value as any || {}),
+        ...((value as any) || {}),
         ...((theme as any)[key] || {}),
         ...((darkTheme as any)[key] || {}),
       },
     }),
-      baseTheme,
+    baseTheme,
   ) as typeof baseTheme
 /**
  * Merge the React Navigation Theme

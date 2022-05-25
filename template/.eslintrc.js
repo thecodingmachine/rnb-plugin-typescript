@@ -4,7 +4,18 @@ module.exports = {
   },
   root: true,
   extends: ['@react-native-community'],
-  plugins: ['jest'],
+  plugins: ['jest', '@typescript-eslint'],
+  parser: '@typescript-eslint/parser',
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/no-shadow': ['error'],
+        'no-shadow': 'off',
+        'no-undef': 'off',
+      },
+    },
+  ],
   rules: {
     semi: ['error', 'never'],
     'object-curly-spacing': ['error', 'always'],

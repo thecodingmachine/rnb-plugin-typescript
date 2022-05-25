@@ -5,7 +5,7 @@
  */
 import { StyleSheet } from 'react-native'
 import buttonStyles from './components/Buttons'
-import {CommonParams} from "@/Theme/theme";
+import { CommonParams } from './theme'
 
 export default function <C>({ Colors, ...args }: CommonParams<C>) {
   return {

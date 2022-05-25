@@ -45,6 +45,7 @@ template/src/Navigators/Main.tsx
 template/src/Navigators/Application.tsx
 
 template/src/Services/modules/index.ts
+template/src/Services/modules/users/index.ts
 
 template/src/Store/index.ts
 
@@ -53,6 +54,3 @@ template/src/Theme/index.ts
 template/src/Theme/Variables.ts
 
 template/src/Translations
-
-template/src/App.tsx
-
