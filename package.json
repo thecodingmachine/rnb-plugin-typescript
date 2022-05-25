@@ -1,6 +1,6 @@
 {
   "name": "@thecodingmachine/rnb-plugin-typescript",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "TheCodingMachine React Native Boilerplate typescript plugin",
   "repository": {
     "type": "git",
