@@ -19,15 +19,17 @@ plugin.lifecycle.onInstall = async () => {
   await plugin.helpers.loopOnPluginFiles({
     onFileFound: async ({ item, rootDir, accumulatedPath }) => {
       const [name] = item.split('.');
+      // If a same name js file is found, delete it
+      if (existsSync(`${plugin.TEMPLATE_PATH}${accumulatedPath}${name}.js`)) {
+        return unlink(`${plugin.TEMPLATE_PATH}${accumulatedPath}${name}.js`);
+      }
+
       // Copy the ts file in the src associated path
       await copyFile(
         `${rootDir}${accumulatedPath}${item}`,
         `${plugin.TEMPLATE_PATH}${accumulatedPath}${item}`,
       );
-      // If a same name js file is found, delete it
-      if (existsSync(`${plugin.TEMPLATE_PATH}${accumulatedPath}${name}.js`)) {
-        return unlink(`${plugin.TEMPLATE_PATH}${accumulatedPath}${name}.js`);
-      }
+
       return Promise.resolve(true);
     },
   });
