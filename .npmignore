@@ -24,7 +24,7 @@ template/package.json
 template/*.lock
 
 template/babel.config.js
-template/index.js
+# template/index.js <-- DO NOT UNCOMMENT
 template/jest.setup.js
 template/jsconfig.js
 template/metro.config.js
