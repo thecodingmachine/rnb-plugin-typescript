@@ -19,10 +19,6 @@ plugin.lifecycle.onInstall = async () => {
   await plugin.helpers.loopOnPluginFiles({
     onFileFound: async ({ item, rootDir, accumulatedPath }) => {
       const [name] = item.split('.');
-      // If a same name js file is found, delete it
-      if (existsSync(`${plugin.TEMPLATE_PATH}${accumulatedPath}${name}.js`)) {
-        return unlink(`${plugin.TEMPLATE_PATH}${accumulatedPath}${name}.js`);
-      }
 
       // Copy the ts file in the src associated path
       await copyFile(
@@ -30,21 +26,29 @@ plugin.lifecycle.onInstall = async () => {
         `${plugin.TEMPLATE_PATH}${accumulatedPath}${item}`,
       );
 
+      // If a same name js file is found and past a TSX or TS, delete it
+      const extension = item.split('.')[item.split('.').length - 1];
+      const isTsFile = extension === 'ts' || extension === 'tsx';
+      if (isTsFile && existsSync(`${plugin.TEMPLATE_PATH}${accumulatedPath}${name}.js`)) {
+        return unlink(`${plugin.TEMPLATE_PATH}${accumulatedPath}${name}.js`);
+      }
+
       return Promise.resolve(true);
     },
   });
 
   // Loop on source files to rename them in the final source directory
   await plugin.helpers.loopOnSourceFiles({
+    isExcluded: false,
     isTsx: false,
     onFileFound: async ({
-      item, rootDir, accumulatedPath, isTsx,
+      item, rootDir, accumulatedPath, isTsx, isExcluded,
     }) => {
       const file = item.split('.');
       const extension = file.pop();
       const name = file.join('.');
 
-      if (extension === 'js' && `${accumulatedPath}/${item}` !== 'index.js') {
+      if (!isExcluded && extension === 'js') {
         let fileExtension = '.ts';
         const firstCharIsUpperCase = name.charAt(0).toUpperCase() === name.charAt(0);
         if (isTsx && firstCharIsUpperCase) {
@@ -60,7 +64,7 @@ plugin.lifecycle.onInstall = async () => {
     onDirectoryFound: async ({
       item, accumulatedPath, isTsx,
     }) => {
-      const EXCLUDED_DIRECTORIES = ['Assets', 'Config'];
+      const EXCLUDED_DIRECTORIES = ['Assets'];
       const TSX_DIRECTORIES = ['Components', 'Containers', 'Navigators'];
 
       const tsxCondition = accumulatedPath === '/'
@@ -68,10 +72,10 @@ plugin.lifecycle.onInstall = async () => {
         : isTsx || TSX_DIRECTORIES.includes(item);
 
       if (!EXCLUDED_DIRECTORIES.includes(item)) {
-        return Promise.resolve({ isTsx: tsxCondition });
+        return Promise.resolve({ isTsx: tsxCondition, isExcluded: false });
       }
 
-      return Promise.resolve({ isTsx });
+      return Promise.resolve({ isTsx, isExcluded: true });
     },
   });
 };
