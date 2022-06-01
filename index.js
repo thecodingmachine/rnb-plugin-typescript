@@ -44,7 +44,7 @@ plugin.lifecycle.onInstall = async () => {
       const extension = file.pop();
       const name = file.join('.');
 
-      if (extension === 'js') {
+      if (extension === 'js' && `${accumulatedPath}/${item}` !== 'index.js') {
         let fileExtension = '.ts';
         const firstCharIsUpperCase = name.charAt(0).toUpperCase() === name.charAt(0);
         if (isTsx && firstCharIsUpperCase) {
@@ -60,7 +60,7 @@ plugin.lifecycle.onInstall = async () => {
     onDirectoryFound: async ({
       item, accumulatedPath, isTsx,
     }) => {
-      const EXCLUDED_DIRECTORIES = ['Assets'];
+      const EXCLUDED_DIRECTORIES = ['Assets', 'Config'];
       const TSX_DIRECTORIES = ['Components', 'Containers', 'Navigators'];
 
       const tsxCondition = accumulatedPath === '/'

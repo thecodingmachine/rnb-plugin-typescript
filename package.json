@@ -26,7 +26,7 @@
     "typescript"
   ],
   "dependencies": {
-    "@thecodingmachine/rnb-toolbox": "^1.0.0-rc.1",
+    "@thecodingmachine/rnb-toolbox": "^1.0.0",
     "ttys": "0.0.3"
   },
   "peerDependencies": {

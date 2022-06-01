@@ -263,10 +263,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@thecodingmachine/rnb-toolbox@^1.0.0-rc.1":
-  version "1.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@thecodingmachine/rnb-toolbox/-/rnb-toolbox-1.0.0-rc.1.tgz#3144e904c209cabb0612844bc17067d7a686ac0a"
-  integrity sha512-qUH2iQRge6sPqvVDfo4gQI2wOPREdBdKBoWNm43qA59/FdAuDGEsmCo5v7w4mDBZAi2rDLIob4B6QYZ2xbtdtQ==
+"@thecodingmachine/rnb-toolbox@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@thecodingmachine/rnb-toolbox/-/rnb-toolbox-1.0.0.tgz#1b50a90983cfe14b4bd71af68f914949d06b21ea"
+  integrity sha512-azX+GX0RaFbeYSpO74z7Kgt9y3E+dp3FMfXHCwn8P/1Nj5VjcO2xdYC3q3gSy5Gn/cI3eyxCvxDZb4gz/ZMHuA==
   dependencies:
     kleur "^4.1.4"
     prompts "^2.4.2"
