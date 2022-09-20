@@ -7,6 +7,7 @@ const plugin = new RNBPlugin({
   organisation: '@thecodingmachine',
   packageName: 'rnb-plugin-typescript',
   promptsOptions: {
+    name: 'typescript',
     type: 'confirm',
     color: 'blue',
     text: '📘 Using typescript ?',
