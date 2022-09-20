@@ -2,6 +2,8 @@
 #
 .DS_Store
 
+package.json
+
 # Xcode
 #
 build/

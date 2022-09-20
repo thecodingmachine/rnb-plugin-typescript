@@ -20,7 +20,7 @@ template/node_modules
 # Config files
 template/.*
 template/app.json
-template/package.json
+template/package.local.json
 template/*.lock
 
 template/babel.config.js
