@@ -1,3 +1,5 @@
+# 🚨 this project is now a complete part of the [original package]() and will be deleted soon 🚨
+
 <div align="center">
     <img src="./TOM-Legend.png" alt="Logo" width="100%">
 </div>
